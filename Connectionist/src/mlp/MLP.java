@@ -1,7 +1,6 @@
 package mlp;
 
 public class MLP {
-
 	private int numberInputs, numberHidden, numberOutputs;
 	private double learningRate, input[], hidden[], output[], w1[][], w2[][];
 
@@ -63,7 +62,7 @@ public class MLP {
 	public double bPropagate(double[] target) {
 
 		double error = 0.0;
-		
+
 		double[] errorL2 = new double[numberOutputs + 1];
 		double[] errorL1 = new double[numberHidden + 1];
 

@@ -1,7 +1,5 @@
 package mlp;
 
-import java.util.Arrays;
-
 public class Main {
 	private static final int MAX_EPOCHS = 500000;
 	private static final double ERR_THRESHOLD = 0.01;
@@ -20,7 +18,7 @@ public class Main {
 				q1.fForward(trainingSet[j]);
 				error += q1.bPropagate(target[j]);
 			}
-			if (i % 200 == 0)
+			if (i % 1000 == 0)
 				System.out.println("Epoch: " + i + "  Error: " + error);
 			if (error < ERR_THRESHOLD) {
 				System.out.println("END, Error < " + ERR_THRESHOLD + ": " + error);
@@ -37,7 +35,7 @@ public class Main {
 				System.out.println("INCORRECT");
 			error = q1.bPropagate(target[i]);
 		}
-		System.out.println("Test set error: " + error);
+		System.out.println("Test set error: " + error + "\n\n");
 
 		// QUESTION 3
 		double[][] trainingSet2 = new double[50][4];
@@ -57,14 +55,14 @@ public class Main {
 				q3.fForward(trainingSet2[j]);
 				error += q3.bPropagate(target2[j]);
 			}
-			if (i % 200 == 0)
-				System.out.println("Epoch: " + i + "  Error: " + error);
+			if (i % 50000 == 0)
+				System.out.println("Epoch = " + i + ", Error = " + error);
 			if (error < ERR_THRESHOLD) {
 				System.out.println("END, Error < " + ERR_THRESHOLD + ": " + error);
 				break;
 			}
 		}
-		
+
 		// QUESTION 4 Testing
 		error = 0.0;
 		for (int j = 40; j < 50; j++) {
